@@ -1,0 +1,150 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Student Fee Collection </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Fee Collection</li>
+          <li class="breadcrumb-item active">Student Fee</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">View Payment</h5>
+
+              <div class="row">  
+                <div class="col-md-6 col-sm-12">
+                    <label for="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                        <i class="bi bi-cash"></i>&nbsp;Payment Fee
+                    </label>
+                </div>
+            
+                <div class="col-md-1 col-sm-0">
+                  
+                </div>
+            
+                <div class="search-bar col-md-3 col-sm-4">
+                    <form class="search-form d-flex align-items-center" (submit)="getFeesByStudentId()">
+                        <input type="text" name="query" placeholder="Search Student ID" title="Enter search keyword" [(ngModel)]="searchKeyword">
+                        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+              <!-- <table class="table datatable"> -->
+                <table  class="table table-striped">
+                <thead>
+                  <tr>
+                    
+                    <th>Fee Id</th>
+                    <th>St. Id</th>
+                    <th>
+                      <b>N</b>ame
+                    </th>
+                    <th>Class</th>
+                    <th>Roll</th>
+                    <th>Catagory</th>
+                    <th>Month</th>
+                    <th>Amount</th>
+                    <th data-type="date" data-format="YYYY/DD/MM">Payment Date</th>
+                   
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+        
+                <tbody>
+                  <tr *ngFor="let fee of feeData">
+                    <td>{{fee.feeid}}</td>
+                    <td>{{fee.studentAddModel.sid}}</td>
+                    <td>{{fee.studentAddModel.stfirstname}} &nbsp;{{fee.studentAddModel.stlastname}}</td>
+                    <td>{{fee.studentAddModel.stClass}}</td>
+                    <td>{{fee.studentAddModel.stRoll}}</td>
+                    <td>{{fee.feeCatagory}}</td>
+                    <td>{{fee.feeMonth}}</td>
+                    <td>{{fee.feeAmount}}</td>
+                    <td>{{fee.paymentDate}}</td>
+                    <td>
+                        <a class="btn btn-primary">View</a>
+                        <a class="btn btn-danger"  (click)="printLastPaymentReceipt()">print</a>
+                    </td>
+                  </tr>
+      
+
+   
+       
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentModalLabel">Payment Fee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+            <div class="col-md-3">
+              <label class="form-label"><b>Student Id</b></label>
+              <select class="form-select" formControlName="studentAddModel">
+                  <option value="" disabled selected><b>Select Student Id</b></option> 
+                  <option *ngFor="let ssid of studentIds" [value]="ssid.sid">{{ssid.sid}}</option>
+              </select>
+          </div>
+
+          
+
+         
+          
+          
+            <div class="mb-3">
+              <label for="feeCatagory" class="form-label"><b>Fee Category</b></label>
+              <select id="feeCatagory" class="form-select" formControlName="feeCatagory"  name="feeCatagory">
+                <option value="" disabled selected>Select Fee Category</option>
+                <option value="Registration">Registration Fee </option>
+                <option value="Exam">Exam Fee </option>
+                <option value="Monthly">Monthly Fee </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="feeMonth" class="form-label"><b>Fee Month</b></label>
+              <select id="feeMonth" class="form-select" formControlName="feeMonth"  name="feeMonth">
+                <option value="" disabled selected>Select Month</option>
+                <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="feeAmount" class="form-label"><b>Fee Amount</b></label>
+                <input type="text" class="form-control" id="feeAmount" formControlName="feeAmount"  name="feeAmount">
+              </div>
+            <!-- Add more fields as needed -->
+            <button type="submit" class="btn btn-primary" (click)="saveFee()">Submit</button> &nbsp;
+            <button type="submit" class="btn btn-warning" (click)="printLastPaymentReceipt()">print</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,209 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Rutine</a></li>
+                <li class="breadcrumb-item active">Exam Rutine Add Form</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Exam Rutine Form</h5>
+
+                        <!-- Browser Default Validation -->
+                        <form class="row g-3" [formGroup]="routineForm" (ngSubmit)="saveRoutine()">
+                            <div class="col-md-6">
+                                <label class="form-label"><b>Class</b> </label>
+                                <select class="form-select" formControlName="exClass">
+                                    <!--                                    <option value="" selected>Select Class</option>-->
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label"><b>Exam Time</b> </label>
+                                
+                                    <label class="form-label">&nbsp;</label>
+                                    <input type="text" class="form-control" formControlName="exTime" placeholder="Class Time Input">
+                                
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>1st Exam</b></label>
+                                <select class="form-select" formControlName="exSubject1">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate1" placeholder="Class Time Input">
+                            </div>
+
+                            <!--                            ---------------------------------------->
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>2nd Exam</b></label>
+                                <select class="form-select"  formControlName="exSubject2">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate2" placeholder="Class Time Input">
+                            </div>
+
+                            <!--                            ------------------------>
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>3rd Exam</b></label>
+                                <select class="form-select" formControlName="exSubject3">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate3" placeholder="Class Time Input">
+                            </div>
+
+                            <!--                            ------------------------------->
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>4th Exam</b></label>
+                                <select class="form-select" formControlName="exSubject4">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate4" placeholder="Class Time Input">
+                            </div>
+
+
+                            <!--                            -------------------------------->
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>5th Exam</b></label>
+                                <select class="form-select" formControlName="exSubject5">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate5" placeholder="Class Time Input">
+                            </div>
+
+                            <!--                            ---------------------------->
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>6th Exam</b></label>
+                                <select class="form-select" formControlName="exSubject6">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate6" placeholder="Class Time Input">
+                            </div>
+
+                            <!--                            ------------------------------>
+
+                            <div class="col-md-6">
+                                <label class="form-label text-success"><b>7th Exam</b></label>
+                                <select class="form-select" formControlName="exSubject7">
+                                    <option value="" selected>Selete Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Scince">Scince</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="date" class="form-control" formControlName="exdate7" placeholder="Class Time Input">
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
+                                        required>
+                                    <label class="form-check-label" for="invalidCheck2">
+                                        Check Properly and confirm form
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main><!-- End #main -->

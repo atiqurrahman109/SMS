@@ -1,0 +1,163 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Student Result</a></li>
+                <li class="breadcrumb-item active">Result View</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body mt-3">
+
+                        <!-- start my work-->
+                        <div class="row">
+
+
+                            <label class="col-form-label col-sm-2 pt-0"><b>Select Class</b></label>
+
+
+
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <a  th:href="@{/result/resviewbyclass/{rclass}(rclass=6)}" th:text="Class-6" style="font-weight: bold;" ><b>classs-6</b></a>
+
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <a th:href="@{/result/resviewbyclass/{rclass}(rclass=7)}" th:text="Class-7" style="font-weight: bold;"><b>classs-7</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:href="@{/result/resviewbyclass/{rclass}(rclass=8)}" th:text="Class-8" style="font-weight: bold;"><b>classs-8</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:href="@{/result/resviewbyclass/{rclass}(rclass=9)}" th:text="Class-9" style="font-weight: bold;"><b>classs-9</b></a>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <a th:href="@{/result/resviewbyclass/{rclass}(rclass=10)}" th:text="Class-10" style="font-weight: bold;"><b>classs-10</b></a>
+                                </div>
+
+                            </div>
+
+                 </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+
+                        <!-- start my work-->
+                        <div class="row">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <h5 class="card-title " >Student Result View <b style="margin-left: 60%">Class : <b><span th:text="${selectedClass}" style="font-size: 18px; font-weight: bold; color: #000;" class="large-text"></span></b></b></h5>
+                                    <div class="search-bar col-md-3 col-sm-4">
+                                        <form class="search-form d-flex align-items-center" (submit)="getResultByStudentId()">
+                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" [(ngModel)]="searchKeyword">
+                                            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                                        </form>
+                                    </div>
+                                    <!-- Table with stripped rows -->
+                                    <table class="table table-striped"  >
+
+
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">ST. Id</th>
+                                            <th scope="col"><b>N</b>ame</th>
+                                            <th scope="col">C. Roll</th>
+<!--                                            <th scope="col">Name</th>-->
+                                            <th scope="col">Ban</th>
+                                            <th scope="col">Eng</th>
+                                            <th scope="col">Math</th>
+                                            <th scope="col">Scince</th>
+                                            <th scope="col">Social</th>
+                                            <th scope="col">Islam</th>
+                                            <th scope="col">Total</th>
+                                            <!-- <th scope="col">Avarage</th>
+                                            <th scope="col">GPA</th>
+                                            <th scope="col">Gread</th> -->
+                                            <th scope="col">Result</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                              
+                                            <tr *ngFor="let res of resultData" >
+                                            <th  >{{res.studentAddModel.sid}}</th>
+                                            <td >{{res.studentAddModel.stfirstname}}&nbsp; {{res.studentAddModel.stlastname}}</td>
+                                            <th >{{res.studentAddModel.stRoll}}</th>
+                                            <td >{{res.rbangla}}</td>
+                                            <td >{{res.renglish}}</td>
+                                            <td >{{res.rmath}}</td>
+                                            <td >{{res.rscince}}</td>
+                                            <td >{{res.rsocial}}</td>
+                                            <td >{{res.rislam}}</td>
+                                            <td >{{res.rtotalmark}}</td>
+                                            <!-- <td >{{res.ravg}}</td>
+                                            <td >{{res.rgpa}}</td>
+                                            <td >{{res.rgrade}}</td> -->
+                                            <td >{{res.rpassFail}}</td>
+                                            <td >
+
+                                                <div class="btn-group " role="group" aria-label="Action buttons" >
+                                                    <button type="button " class="btn btn-outline-success ">
+                                                        <i class="fas fa-print"></i> Print
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-primary" [routerLink]="['/resultprofile', res.rid]">
+                                                        <i class="fas fa-edit" ></i> View
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                    </button>
+                                                  
+                                                </div>
+                                                <!-- <a   class="btn btn-danger"> Delete</a>
+                                                <a   class="btn btn-warning" [routerLink]="['/resultprofile', res.rid]"> View </a> -->
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <!-- End Table with stripped rows -->
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end my work-->
+                    </div>
+
+                </div>
+
+    </section>
+</main><!-- End #main -->
+
+
+
+
+
+
+

@@ -1,0 +1,200 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Student Result</a></li>
+                <li class="breadcrumb-item active">Result View</li>
+            </ol>
+        </nav>
+    </div>
+
+
+
+
+
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+
+                        <!-- start my work-->
+                        <div class="row">
+                            <div class="card">
+
+                                <div class="card-body">
+                                   <div class="row">
+                                    <div class="col-lg-2 col-md-3 " style="padding: 5%;" >
+                                        <img src="../../../assets/img/logo.png" style="border-image-width: 35%; margin-top: 0%;">
+                                    </div>
+                                    <div class="col-lg-8 col-md-6 label">
+                                        <h5 class="card-title " style="margin-left: 20% ; padding-bottom: 0%;">SMS ANGULAR WITH MAVEN</h5>
+                                        <span  style="font-size: 14px; margin-left: 25%; font-weight: bold; padding-top: 0%;" >Idb,agargon,dhaka-1312</span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-3" style="padding: 5%;">
+                                        <img src="http://localhost:8082/admin/student/display?sid={{resultData.studentAddModel.sid}}" style="width: 100px; height: auto; border: 1px solid black;">
+                                    </div>
+                                   </div>
+                                    <hr>
+                                    
+                        <div class="tab-content pt-2">
+
+                            <div class="tab-pane fade show active profile-overview" id="profile-overview" >
+                                
+                                <h5 class="card-title" style="padding-top: 0%; margin-left: 40%;">Mark Sheet</h5>
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 label" >Student Roll</div>
+                                    <div class="col-lg-6 col-md-3 label" ><b>{{resultData.studentAddModel.stRoll}}</b></div>
+                                    <div class="col-lg-2 col-md-3" >Image </div>
+                                    <div class="col-lg-2 col-md-3" >{{resultData.rgrade}} </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 label" >Student Name</div>
+                                    <div class="col-lg-6 col-md-3 label" ><b>{{resultData.studentAddModel.stfirstname}}&nbsp;{{resultData.studentAddModel.stlastname}}</b></div>
+                                    <div class="col-lg-2 col-md-3" >Gender </div>
+                                    <div class="col-lg-2 col-md-3" >{{resultData.studentAddModel.stgender}} </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 label" >Class</div>
+                                    <div class="col-lg-6 col-md-3 label" ><b>{{resultData.studentAddModel.stClass}}</b></div>
+                                    <div class="col-lg-2 col-md-3" >Gread </div>
+                                    <div class="col-lg-2 col-md-3" >{{resultData.rgrade}} </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 label" >Batch Id </div>
+                                    <div class="col-lg-6 col-md-3 label" ><b>{{resultData.studentAddModel.batchId}}</b></div>
+                                    <div class="col-lg-2 col-md-3" >Statud </div>
+                                    <div class="col-lg-2 col-md-3 " style="color: red;"><b>{{resultData.rpassFail}}</b> </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 label" >Session</div>
+                                    <div class="col-lg-6 col-md-3 label" ><b>{{resultData.studentAddModel.session}}</b></div>
+                                    <div class="col-lg-2 col-md-3" >ExamCatagory </div>
+                                    <div class="col-lg-2 col-md-3" >{{resultData.rexamcatagory}} </div>
+                                </div> <br>
+
+                                <div class="row">
+                                   <div class="col-lg-4 col-md-6 label" >SUBJECT</div>
+                                    <div class="col-lg-8 col-md-6" >Marks</div>
+                                    <hr>
+                                </div> <br>
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label" >BANGLA</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.rbangla}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; " >
+                                    <div class="col-lg-4 col-md-4 label" >ENGLISH</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.renglish}}</div>
+                                </div>
+
+                                <div class="row"  style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label" >MATH</div>
+                                    <div class="col-lg-8 col-md-8"  >{{resultData.rmath}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; " >
+                                    <div class="col-lg-4 col-md-4 label" >SCEINCE</div>
+                                    <div class="col-lg-8 col-md-8">{{resultData.rscince}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label">S.SCEINCE</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.rsocial}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label">ISLAM</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.rislam}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label">TOTAL MARK</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.rtotalmark}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-4 col-md-4 label">AVARAGE MARK</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.ravg}}</div>
+                                </div>
+
+                                <div class="row" style="padding: 5px; margin-bottom: 100px; ">
+                                    <div class="col-lg-4 col-md-4 label">G.P.A</div>
+                                    <div class="col-lg-8 col-md-8" >{{resultData.rgpa}}</div>
+                                </div>
+                               
+
+                                <div class="row" style="padding: 5px; ">
+                                    <div class="col-lg-6 col-md-6 label">......................................<br>Student Singeture</div>
+                                    <div class="col-lg-6 col-md-6 label">......................................<br>Principle Singeture</div>
+                                </div>
+                             
+
+                            </div>
+
+                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+
+                            </div>
+
+                        </div><!-- End Bordered Tabs -->
+
+                                
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end my work-->
+                    </div>
+
+                </div>
+
+    </section>
+
+
+    <section class="section">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body mt-3">
+
+
+                 <div class="row">
+                    <label class="col-form-label col-sm-2 pt-0"><b>Action Bar</b></label>
+                    <div class="col-sm-10">
+                        <!-- Button Group for actions -->
+                        <div class="btn-group " role="group" aria-label="Action buttons" >
+                            <button type="button " class="btn btn-outline-success ">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button type="button" class="btn btn-outline-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" routerLink="/resultview">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+</main><!-- End #main -->

@@ -1,0 +1,301 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+
+    <!-- Page Title -->
+    <div class="pagetitle p-3 rounded shadow-sm text-white" 
+         style="background: linear-gradient(90deg, #0d6efd, #20c997);">
+        <h1 class="mb-0">Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-white-50">Routine</a></li>
+                <li class="breadcrumb-item active text-white">Class Routine Add Form</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section mt-4">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+
+                <!-- Card -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-header text-white fw-bold" 
+                         style="background: linear-gradient(45deg, #6610f2, #17a2b8);">
+                        📚 Class Routine Form
+                    </div>
+
+                    <div class="card-body bg-light">
+                        <!-- Form -->
+                        <form class="row g-4">
+
+                            <!-- Class -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-primary">Class</label>
+                                <select class="form-select border-primary shadow-sm" required>
+                                    <option value="" selected disabled>Select Class</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+
+                            <!-- Day -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-success">Day</label>
+                                <select class="form-select border-success shadow-sm" required>
+                                    <option value="" selected disabled>Select Day</option>
+                                    <option value="SUNDAY">SUN_DAY</option>
+                                    <option value="MONDAY">MON_DAY</option>
+                                    <option value="TUESDAY">TUES_DAY</option>
+                                    <option value="WEDNESDAY">WEDNES_DAY</option>
+                                    <option value="THURSDAY">THURS_DAY</option>
+                                </select>
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-12">
+                                <hr class="border border-info border-2 opacity-50">
+                            </div>
+
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">1st Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">2nd Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">3rd Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">4th Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">5th Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">6th Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            <div class="col-md-4">
+                                <label class="form-label text-danger fw-bold">7th Period</label>
+                                <select class="form-select border-danger shadow-sm">
+                                    <option value="" selected disabled>Select Subject</option>
+                                    <option value="Bangla">Bangla</option>
+                                    <option value="Math">Math</option>
+                                    <option value="English">English</option>
+                                    <option value="ICT">ICT</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <select class="form-select border-warning shadow-sm">
+                                    <option selected disabled>Select Teacher</option>
+                                    <option value="Imran Hossain">Imran Hossain</option>
+                                    <option>Sabit Hasan</option>
+                                    <option>Rajib Khan</option>
+                                    <option>Mamun Sheik</option>
+                                    <option>Abdul Aziz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">&nbsp;</label>
+                                <input type="text" class="form-control border-info shadow-sm" 
+                                       placeholder="Class Time Input">
+                            </div>
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                           
+                            <!-- Example Period (Repeat for 1st-7th) -->
+                            
+
+                            <!-- এখানে 2nd → 7th Period এর জন্য একই structure copy করো।
+                                 শুধু label এর color (text-info, text-warning, text-success ইত্যাদি) 
+                                 আর border color change করলে প্রতিটা আলাদা আলাদা colorful লাগবে -->
+
+                            <!-- Checkbox -->
+                            <div class="col-12">
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input border-success" type="checkbox" id="invalidCheck2" required>
+                                    <label class="form-check-label fw-semibold text-success" for="invalidCheck2">
+                                        ✅ Check Properly and confirm form
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="col-12 text-end">
+                                <a class="btn text-white fw-bold shadow px-4" 
+                                   style="background: linear-gradient(90deg, #ff6f61, #ffcc00);" 
+                                   routerLink="/classrutineview">
+                                    Submit 🚀
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
