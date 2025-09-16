@@ -1,102 +1,146 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-<main id="main" class="main">
-    <div class="pagetitle">
-        <h1>Dashboard</h1>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Student</a></li>
-                <li class="breadcrumb-item active">View Student</li>
-            </ol>
-        </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #1e90ec;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card-title {
+      color: #2c3e50;
+    }
+
+    .student-card {
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .student-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-img {
+      height: 100px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .pagetitle h1 {
+      font-weight: bold;
+    }
+
+    .class-buttons a {
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .breadcrumb {
+      background-color: transparent;
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+
+  <main id="main" class="main">
+    <!-- Page Title -->
+    <div class="pagetitle mb-4">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Student</a></li>
+          <li class="breadcrumb-item active">View Student</li>
+        </ol>
+      </nav>
     </div>
 
+    <!-- Class Selection -->
+    <section class="section mb-4">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="card shadow-sm">
+            <div class="card-body mt-3">
+              <div class="row align-items-center mb-3">
+                <label class="col-form-label col-sm-2 pt-0"><b>Select Class</b></label>
+                <div class="col-sm-10">
+                  <div class="d-flex flex-wrap gap-3 class-buttons">
+                    <a href="#" (click)="loadStudentsByClass('6')" class="btn btn-primary btn-sm fw-bold">Class-6</a>
+                    <a href="#" (click)="loadStudentsByClass('7')" class="btn btn-success btn-sm fw-bold">Class-7</a>
+                    <a href="#" (click)="loadStudentsByClass('8')" class="btn btn-warning btn-sm fw-bold text-dark">Class-8</a>
+                    <a href="#" (click)="loadStudentsByClass('9')" class="btn btn-info btn-sm fw-bold text-dark">Class-9</a>
+                    <a href="#" (click)="loadStudentsByClass('10')" class="btn btn-danger btn-sm fw-bold">Class-10</a>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!studentData || studentData.length === 0" class="alert alert-warning text-center mt-3">
+                No data found
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
+    <!-- Student Cards -->
     <section class="section">
-        <div class="row">
-            <div class="col-md-10 offset-1">
-                <div class="card">
-                    <div class="card-body mt-3">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="card shadow-sm">
+            <div class="card-body mt-3">
+              <h5 class="card-title">
+                Student View
+                <span class="float-end">Class:
+                  <span style="font-size: 18px; font-weight: bold; color: #e74c3c;">{{ selectedClass }}</span>
+                </span>
+              </h5>
 
-                        <!-- start my work-->
-                        <div class="row">
-
-
-                            <label class="col-form-label col-sm-2 pt-0"><b>Select Class</b></label>
-
-
-
-                            <div class="col-sm-10">
-                                <div class="form-check form-check-inline">
-                                    <a href="#" (click)="loadStudentsByClass('6')" style="font-weight: bold;">Class-6</a>
-                                                                       
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <a href="#" (click)="loadStudentsByClass('7')" style="font-weight: bold;">Class-7</a>
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <a href="#" (click)="loadStudentsByClass('8')" style="font-weight: bold;">Class-8</a>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <a href="#" (click)="loadStudentsByClass('9')" style="font-weight: bold;">Class-9</a>
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <a href="#" (click)="loadStudentsByClass('10')" style="font-weight: bold;">Class-10</a>
-                                </div>
-
-                            </div>
-
+              <div class="row mt-4">
+                <div class="col-md-4 mb-4" *ngFor="let row of studentData">
+                  <div class="card h-100 shadow-sm student-card">
+                    <div class="row g-0">
+                      <div class="col-md-4 d-flex flex-column align-items-center p-2">
+                        <img src="http://localhost:8082/admin/student/display?sid={{row.sid}}" class="student-img rounded mb-2" alt="Student Image">
+                        <a [routerLink]="['/stprofile', row.sid]" class="btn btn-outline-secondary btn-sm">More Detail</a>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title mb-1">{{ row.stfirstname }}</h5>
+                          <p class="mb-1"><b>Sid:</b> {{ row.sid }}</p>
+                          <p class="mb-1"><b>Roll:</b> {{ row.stRoll }}</p>
+                          <p class="mb-1"><b>Class:</b> {{ row.stClass }}</p>
+                          <p class="mb-1"><b>Session:</b> {{ row.session }}</p>
+                          <p class="mb-1"><b>Gender:</b> {{ row.stgender }}</p>
                         </div>
-                        <div *ngIf="!studentData || studentData.length === 0">No data found</div>
+                      </div>
                     </div>
-
-                </div>
-                
+                  </div>
+                </div> <!-- end student card -->
+              </div> <!-- end row -->
             </div>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-
-
-
-    <section class="section">
-       <div class="row">
-            <div class="col-md-10 offset-1">
-                <div class="card">
-                    <div class="card-body mt-3">
-                        <h5 class="card-title " >Student View <b style="margin-left: 60%">Class : <b><span  style="font-size: 18px; font-weight: bold; color: #000;" class="large-text">{{ selectedClass }}</span></b></b></h5>
-                     
-                        <div class="row">
-                            <div class="card col-md-4 mb-4" *ngFor="let row of studentData">
-                              <div class="row g-0">
-                                <div class="col-md-4">
-                                  <img src="http://localhost:8082/admin/student/display?sid={{row.sid}}" class="img-fluid rounded-start" alt="..."><br><br>
-                                  <a [routerLink]="['/stprofile', row.sid]"><b>More Detail</b></a>
-                                </div>
-                                <div class="col-md-8">
-                                  <div class="card-body">
-                                    <h5 class="card-title">{{ row.stfirstname }}</h5>
-                                    <b><span>Sid {{ row.sid }}</span></b><br>
-                                    <b><span>Rol: {{ row.stRoll }}</span></b><br>
-                                    <b><span>Class: {{ row.stClass }}</span></b><br>
-                                    <b><span>Session: {{ row.session }}</span></b><br>
-                                    <b><span>Gender: {{ row.stgender }}</span></b><br>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        
-    </section>
-</main>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

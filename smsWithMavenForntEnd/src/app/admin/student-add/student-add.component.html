@@ -127,7 +127,7 @@
                   <label class="form-label">Session</label>
                   <select class="form-select" formControlName="session">
                     <option value="">Choose</option>
-                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
                   </select>
                 </div>
 
@@ -149,10 +149,12 @@
 
                 <div class="col-md-3">
                   <label class="form-label">Roll</label>
-                  <select class="form-select" formControlName="stRoll">
+                  <input type="number
+                  " class="form-control" formControlName="stRoll" >
+                  <!-- <select class="form-select" formControlName="stRoll">
                     <option value="">Choose</option>
-                    <option *ngFor="let i of [1,2,3,4,5,6,7,8]">{{ i }}</option>
-                  </select>
+                    <option *ngFor="let i of []">{{ i }}</option>
+                  </select> -->
                 </div>
 
                 <!-- Text Inputs -->

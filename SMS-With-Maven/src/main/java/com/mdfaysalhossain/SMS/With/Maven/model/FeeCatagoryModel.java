@@ -18,7 +18,7 @@ public class FeeCatagoryModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long feeid;
 
-    private long ssid;
+//    private long ssid;
 
     private String feeCatagory;
 

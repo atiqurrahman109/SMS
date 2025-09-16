@@ -1,3 +1,64 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<p>syllabus-view works!</p>
+
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Syllabus</a></li>
+        <li class="breadcrumb-item active">View Syllabus</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="card">
+          <div class="card-header text-center">
+            <h5 class="mb-0">All Syllabus</h5>
+          </div>
+          <div class="card-body">
+            
+            <!-- Table of Syllabus -->
+            <div *ngIf="syllabus.length > 0; else noData">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead class="table-dark text-center">
+                    <tr>
+                      <th>#</th>
+                      <th>Class</th>
+                      <th>Exam Category</th>
+                      <th>Subject</th>
+                      <th>Page No</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of syllabus; let i = index">
+                      <td class="text-center">{{ i + 1 }}</td>
+                      <td class="text-center">{{ item.sclass }}</td>
+                      <td class="text-center">{{ item.examCatagory }}</td>
+                      <td class="text-center">{{ item.subjectModel?.subName }}</td>
+                      <td class="text-center">{{ item.pageNo }}</td>
+                      <td>{{ item.discription }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- No data fallback -->
+            <ng-template #noData>
+              <div class="alert alert-warning text-center">
+                No syllabus records found.
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

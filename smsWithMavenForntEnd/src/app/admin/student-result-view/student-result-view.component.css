@@ -1,0 +1,6 @@
+.student-photo {
+  width: 50px;   /* fixed width */
+  height: 50px;  /* fixed height */
+  object-fit: cover; /* keeps ratio but fills the box */
+  border-radius: 50%; /* optional: makes it circular */
+}

@@ -52,6 +52,18 @@ public class FeeApi {
         return feeService.findByStudentId(sid);
     }
 
+
+
+    @PostMapping("")
+    public ResponseEntity<FeeCatagoryModel> createFeeCatagory(
+            @RequestBody FeeCatagoryModel feeCatagoryModel
+
+    ) {
+
+        FeeCatagoryModel saved = feeService.saveOrUpdate(feeCatagoryModel);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+    }
+
 //    @GetMapping("/total-today")
 //    public Double getTotalFeeForToday(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate today) {
 //        return (double) iFeeCatagoryRepo.calculateTotalFeeForToday(today);
@@ -107,20 +119,20 @@ public class FeeApi {
 //
 
 
-    @PostMapping("")
-    public ResponseEntity<FeeCatagoryModel> saveFee(@RequestBody FeeCatagoryModel feeCatagoryModel) {
-        long sid = feeCatagoryModel.getSsid();
-        StudentAddModel studentAddModelFromDb = iStudentAddRepo.findBySid(sid);
-
-        if (studentAddModelFromDb == null) {
-            // Handle the case when the student is not found
-            return ResponseEntity.notFound().build();
-        }
-
-        feeCatagoryModel.setStudentAddModel(studentAddModelFromDb);
-        FeeCatagoryModel savedFee = feeService.saveFee(feeCatagoryModel);
-        return ResponseEntity.ok(savedFee);
-    }
+//    @PostMapping("")
+//    public ResponseEntity<FeeCatagoryModel> saveFee(@RequestBody FeeCatagoryModel feeCatagoryModel) {
+//        long sid = feeCatagoryModel.getSsid();
+//        StudentAddModel studentAddModelFromDb = iStudentAddRepo.findBySid(sid);
+//
+//        if (studentAddModelFromDb == null) {
+//            // Handle the case when the student is not found
+//            return ResponseEntity.notFound().build();
+//        }
+//
+//        feeCatagoryModel.setStudentAddModel(studentAddModelFromDb);
+//        FeeCatagoryModel savedFee = feeService.saveFee(feeCatagoryModel);
+//        return ResponseEntity.ok(savedFee);
+//    }
 
 
 
