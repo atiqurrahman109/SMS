@@ -1,9 +1,6 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -13,19 +10,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-  private   String username ;
+    private String username;
+    private String email;
+    private String photo;
 
-   private String password ;
-     private Set<Role> roles ;
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+   private Role role;
 
     public User() {
     }
 
-    public User(int id, String username, String password, Set<Role> roles) {
+    public User(int id, String username, String email, String photo, String password, Role role) {
         this.id = id;
         this.username = username;
+        this.email = email;
+        this.photo = photo;
         this.password = password;
-        this.roles = roles;
+        this.role = role;
     }
 
     public int getId() {
@@ -44,6 +47,22 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -52,11 +71,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

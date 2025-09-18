@@ -1,11 +1,9 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 @Entity
 public class Payment {
@@ -13,17 +11,19 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Student student ;
-private String month ;
-private Double tuitionFee ;
-private Double examFee ;
-private boolean paid ;
-private LocalDate paymentDate ;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student_id")
+    private Student student;
+    private String month;
+    private Double tuitionFee;
+    private Double examFee;
+    private boolean paid;
+    private Date paymentDate;
 
     public Payment() {
     }
 
-    public Payment(int id, Student student, String month, Double tuitionFee, Double examFee, boolean paid, LocalDate paymentDate) {
+    public Payment(int id, Student student, String month, Double tuitionFee, Double examFee, boolean paid, Date paymentDate) {
         this.id = id;
         this.student = student;
         this.month = month;
@@ -81,11 +81,11 @@ private LocalDate paymentDate ;
         this.paid = paid;
     }
 
-    public LocalDate getPaymentDate() {
+    public Date getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(Date paymentDate) {
         this.paymentDate = paymentDate;
     }
 }

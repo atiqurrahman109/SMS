@@ -1,28 +1,40 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.util.List;
+
 @Entity
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name ;
-private String email ;
-private List<Routine> routines ;
+    private String name;
+    private String email;
+    private String phone;
+    private String photo;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Routine> routines;
 
     public Teacher() {
     }
 
-    public Teacher(int id, String name, String email, List<Routine> routines) {
+    public Teacher(int id, String name, String email, String phone, String photo, User user, List<Routine> routines) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.phone = phone;
+        this.photo = photo;
+        this.user = user;
         this.routines = routines;
     }
 
@@ -48,6 +60,30 @@ private List<Routine> routines ;
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Routine> getRoutines() {

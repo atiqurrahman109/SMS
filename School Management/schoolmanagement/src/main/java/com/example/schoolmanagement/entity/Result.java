@@ -1,9 +1,6 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Result {
@@ -12,11 +9,13 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-      private Student student ;
-private String examName ;
-private String subject ;
-private Double marksObtained ;
-private Double totalMarks ;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student_id")
+    private Student student;
+    private String examName;
+    private String subject;
+    private Double marksObtained;
+    private Double totalMarks;
 
     public Result() {
     }

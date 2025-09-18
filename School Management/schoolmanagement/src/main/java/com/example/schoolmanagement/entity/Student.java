@@ -1,9 +1,6 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -13,22 +10,41 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name ;
-private  String email ;
-private Section section ;
-private List<Payment> payments ;
-private List<Result> results ;
+    private String name;
+    private String email;
+    private String photo;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "section_id")
+    private Section section;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Payment> payments;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Result> results;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "school_class_id")
+    private SchoolClass schoolClass;
 
     public Student() {
     }
 
-    public Student(int id, String name, String email, Section section, List<Payment> payments, List<Result> results) {
+    public Student(int id, String name, String email, String photo, User user, Section section, List<Payment> payments, List<Result> results, SchoolClass schoolClass) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.photo = photo;
+        this.user = user;
         this.section = section;
         this.payments = payments;
         this.results = results;
+        this.schoolClass = schoolClass;
     }
 
     public int getId() {
@@ -55,6 +71,22 @@ private List<Result> results ;
         this.email = email;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Section getSection() {
         return section;
     }
@@ -77,5 +109,13 @@ private List<Result> results ;
 
     public void setResults(List<Result> results) {
         this.results = results;
+    }
+
+    public SchoolClass getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(SchoolClass schoolClass) {
+        this.schoolClass = schoolClass;
     }
 }

@@ -1,9 +1,7 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
 @Entity
 public class Routine {
@@ -11,24 +9,31 @@ public class Routine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private  String dayOfWeek ;
-private  String startTime ;
-   private String endTime ;
-private SchoolClass schoolClass ;
-private Section  section ;
-private Teacher teacher;
-private String subject ;
+    private String dayOfWeek;
+    private String startTime;
+    private String endTime;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "class_id")
+    @JsonIgnoreProperties({"sections", "routines"})
+    private SchoolClass schoolClass;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id")
+    @JsonIgnoreProperties({"routines", "user"})
+    private Teacher teacher;
+    private String subject;
 
     public Routine() {
     }
 
-    public Routine(int id, String dayOfWeek, String startTime, String endTime, SchoolClass schoolClass, Section section, Teacher teacher, String subject) {
+    public Routine(int id, String dayOfWeek, String startTime, String endTime, SchoolClass schoolClass, Teacher teacher, String subject) {
         this.id = id;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.schoolClass = schoolClass;
-        this.section = section;
+
         this.teacher = teacher;
         this.subject = subject;
     }
@@ -71,14 +76,6 @@ private String subject ;
 
     public void setSchoolClass(SchoolClass schoolClass) {
         this.schoolClass = schoolClass;
-    }
-
-    public Section getSection() {
-        return section;
-    }
-
-    public void setSection(Section section) {
-        this.section = section;
     }
 
     public Teacher getTeacher() {

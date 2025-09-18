@@ -1,30 +1,42 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+@Table(name = "school_class")
 public class SchoolClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String name;
 
+    @OneToMany(mappedBy = "schoolClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Section> sections;
+
+    @OneToMany(mappedBy = "schoolClass", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Student> students;
+
 
     public SchoolClass() {
     }
 
-    public SchoolClass(Long id, String name, List<Section> sections) {
+    public SchoolClass(int id, String name, List<Section> sections, List<Student> students) {
         this.id = id;
         this.name = name;
         this.sections = sections;
+        this.students = students;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,11 +55,11 @@ public class SchoolClass {
         this.sections = sections;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public Long getId() {
-        return id;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

@@ -1,9 +1,6 @@
 package com.example.schoolmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -16,8 +13,11 @@ public class Section {
 
     private String name;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id")
     private  SchoolClass schoolClass ;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Student> students ;
 
     public Section() {
