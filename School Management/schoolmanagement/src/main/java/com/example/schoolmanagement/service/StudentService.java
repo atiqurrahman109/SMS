@@ -40,6 +40,7 @@ public class StudentService {
                 .orElseThrow(() -> new RuntimeException("Student not found with ID: " + id));
     }
 
+
     public void deleteStudent(int id) {
         if (!studentRepo.existsById(id)) {
             throw new RuntimeException("Student not found with ID: " + id);

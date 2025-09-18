@@ -13,15 +13,16 @@ public class Routine {
     private String startTime;
     private String endTime;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "class_id")
-    @JsonIgnoreProperties({"sections", "routines"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "sections"})
     private SchoolClass schoolClass;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "teacher_id")
-    @JsonIgnoreProperties({"routines", "user"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "user"})
     private Teacher teacher;
+
     private String subject;
 
     public Routine() {

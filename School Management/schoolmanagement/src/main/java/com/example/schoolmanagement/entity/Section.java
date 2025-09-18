@@ -1,5 +1,6 @@
 package com.example.schoolmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Section {
     private  SchoolClass schoolClass ;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Student> students ;
 
     public Section() {

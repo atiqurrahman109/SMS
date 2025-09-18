@@ -66,7 +66,7 @@ public class UserRestController {
     public ResponseEntity<String> registerTeacher(
             @RequestPart("user") User user,
             @RequestPart("teacher") Teacher teacher,
-            @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) {
+            @RequestPart(value = "photo", required = false) MultipartFile imageFile) {
 
         try {
             authService.registerTeacher(user, imageFile, teacher);

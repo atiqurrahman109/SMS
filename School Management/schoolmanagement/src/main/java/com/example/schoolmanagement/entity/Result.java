@@ -11,6 +11,7 @@ public class Result {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id")
+
     private Student student;
     private String examName;
     private String subject;
