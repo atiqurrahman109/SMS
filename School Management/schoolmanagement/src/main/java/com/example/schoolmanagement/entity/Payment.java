@@ -18,20 +18,20 @@ public class Payment {
     private Student student;
 
     private String month;
-    private Double tuitionFee;
-    private Double examFee;
+    private String category;
+    private Double amount;
     private boolean paid;
     private Date paymentDate;
 
     public Payment() {
     }
 
-    public Payment(int id, Student student, String month, Double tuitionFee, Double examFee, boolean paid, Date paymentDate) {
+    public Payment(int id, Student student, String month, String category, Double amount, boolean paid, Date paymentDate) {
         this.id = id;
         this.student = student;
         this.month = month;
-        this.tuitionFee = tuitionFee;
-        this.examFee = examFee;
+        this.category = category;
+        this.amount = amount;
         this.paid = paid;
         this.paymentDate = paymentDate;
     }
@@ -60,20 +60,20 @@ public class Payment {
         this.month = month;
     }
 
-    public Double getTuitionFee() {
-        return tuitionFee;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTuitionFee(Double tuitionFee) {
-        this.tuitionFee = tuitionFee;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public Double getExamFee() {
-        return examFee;
+    public Double getAmount() {
+        return amount;
     }
 
-    public void setExamFee(Double examFee) {
-        this.examFee = examFee;
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public boolean isPaid() {

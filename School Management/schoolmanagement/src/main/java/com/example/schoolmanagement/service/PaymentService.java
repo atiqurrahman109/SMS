@@ -31,8 +31,8 @@ public class PaymentService {
                 .map(existing -> {
                     existing.setStudent(updatedPayment.getStudent());
                     existing.setMonth(updatedPayment.getMonth());
-                    existing.setTuitionFee(updatedPayment.getTuitionFee());
-                    existing.setExamFee(updatedPayment.getExamFee());
+                    existing.setCategory(updatedPayment.getCategory());
+                    existing.setAmount(updatedPayment.getAmount());
                     existing.setPaid(updatedPayment.isPaid());
                     existing.setPaymentDate(updatedPayment.getPaymentDate());
                     return paymentRepo.save(existing);

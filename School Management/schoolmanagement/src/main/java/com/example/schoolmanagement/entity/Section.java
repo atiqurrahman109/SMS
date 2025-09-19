@@ -1,6 +1,7 @@
 package com.example.schoolmanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,11 +17,16 @@ public class Section {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "sections"})
     private  SchoolClass schoolClass ;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "section")
     @JsonIgnore
     private List<Student> students ;
+
+    @OneToMany(mappedBy = "section")
+    @JsonIgnore
+    private List<Routine> routines ;
 
     public Section() {
     }
@@ -62,5 +68,13 @@ public class Section {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public List<Routine> getRoutines() {
+        return routines;
+    }
+
+    public void setRoutines(List<Routine> routines) {
+        this.routines = routines;
     }
 }

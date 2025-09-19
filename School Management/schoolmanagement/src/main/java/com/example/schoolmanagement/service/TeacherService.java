@@ -30,7 +30,6 @@ public class TeacherService {
         return teacherRepo.findById(id)
                 .map(existing -> {
                     existing.setName(updatedTeacher.getName());
-                    existing.setEmail(updatedTeacher.getEmail());
                     existing.setRoutines(updatedTeacher.getRoutines());
                     return teacherRepo.save(existing);
                 })

@@ -23,19 +23,24 @@ public class Routine {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "user"})
     private Teacher teacher;
 
+    @ManyToOne
+    @JoinColumn(name ="section_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "schoolClass"})
+    private Section section;
+
     private String subject;
 
     public Routine() {
     }
 
-    public Routine(int id, String dayOfWeek, String startTime, String endTime, SchoolClass schoolClass, Teacher teacher, String subject) {
+    public Routine(int id, String dayOfWeek, String startTime, String endTime, SchoolClass schoolClass, Teacher teacher, Section section, String subject) {
         this.id = id;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.schoolClass = schoolClass;
-
         this.teacher = teacher;
+        this.section = section;
         this.subject = subject;
     }
 
@@ -85,6 +90,14 @@ public class Routine {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     public String getSubject() {
